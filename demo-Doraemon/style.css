@@ -1,0 +1,16 @@
+#container {
+	margin: 0 auto;
+	width: 800px;
+	background-color: #FFF0F5;
+}
+#put {
+	width: 150px;
+	height: 70px;
+	border: 1px solid #333;
+}
+#doraemon {
+	background-color: #fff;
+	/*设置画布居中*/
+	display: block;
+	margin: 0 auto;
+}

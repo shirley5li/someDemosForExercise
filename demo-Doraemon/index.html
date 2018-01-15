@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Doraemon drawing by canvas</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="container" onmousemove="getMousePos(event)">
+		<!-- 创建canvas画布，并设置画布的大小 。将在该画布上绘制我们的机器猫-->
+		<canvas id="doraemon" width="400" height="600">Oh, your browser does not support canvas,
+	 	please update your browser...</canvas>
+	 	<!-- 定义一个div，用来显示绘制过程中鼠标经过画布上时相对于画布canvas的坐标，方便定点画图 -->
+	 	<div id="put"></div>
+	 </div>
+	 <script type="text/javascript" src="global.js"></script>
+</body>
+</html>
