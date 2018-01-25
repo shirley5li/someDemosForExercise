@@ -1,0 +1,10 @@
+
+#displayImg {
+	border: 1.5px dashed #FFDAB9;
+	width: 400px;
+	height: 400px;
+}
+#displayImg img {
+	max-width: 400px;
+	max-height: 400px;
+}
