@@ -1,0 +1,14 @@
+body {
+	position: relative;
+}
+#plane {
+	position: absolute;
+}
+#position {
+	position: absolute;
+	top: 700px;
+	left: 50px;
+	width: 400px;
+	height: 100px;
+	background: #FDF5E6;
+}
