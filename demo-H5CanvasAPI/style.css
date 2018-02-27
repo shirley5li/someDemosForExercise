@@ -1,0 +1,19 @@
+/*给canvas添加实心边框*/
+#track {
+	border: 1px solid #555;
+}
+#heatmap {
+	background-image: url("images/heatmapBj.png");
+}
+/*.leftCanvas {
+	float: left;
+	width: 400px;
+}
+.rightCanvas {
+	margin-left: 600px;
+}
+#support {
+	position: absolute;
+	left: 500px;
+	top: 600px;
+}*/
