@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> React学习</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+	<script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+    <!-- <script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script> -->
+</head>
+<body>
+    <div id="example1"></div>
+    <div id="example2"></div>
+    <div id="example3"></div>
+    <div id="example4"></div>
+    <div id="example5.1"></div>
+    <div id="example5.2"></div>
+    <div id="example5.3"></div>
+    <div id="example6.1"></div>
+    <div id="example7.1"></div>
+    <div id="example7.2"></div>
+    <div id="example8"></div>
+    <div id="example9.1"></div>
+    <div id="example9.2"></div>
+    <div id="example10"></div>
+    <script type="text/babel">
+        /* example1 封装一个输出 "Hello World！" 的组件 */
+        var HelloMessage = React.createClass({
+            render: function() {
+                return <h1> Hello World! </h1>;
+            }
+        });
+        ReactDOM.render(
+            <HelloMessage/>,
+            document.getElementById('example1')
+        );
+
+        /* example2 向组件传递参数，可以使用 this.props 对象 */
+        // 注意，在添加属性时， class属性需要写成 className ，for属性需要写成 htmlFor ，这是因为 class 和 for 是 JavaScript 的保留字。
+        var HelloMessage2 = React.createClass({
+            render: function() {
+                return <h2>Hello {this.props.name}</h2>;
+            }
+        });
+        ReactDOM.render(
+            <HelloMessage2 name = "shirley"/>,
+            document.getElementById('example2')
+        );
+        
+        /* example3 复合组件 */
+        // 通过创建多个组件来合成一个组件，即把组件的不同功能点进行分离。例如:实现了输出网站名字和网址的组件
+        var WebSite = React.createClass({
+            render: function() {
+                return (
+                    <div>
+                        <Name name = {this.props.name} />
+                        <Link site = {this.props.site} />
+                    </div>
+                );
+            }
+        });
+        var Name = React.createClass({
+            render: function() {
+                return (
+                    <h1>{this.props.name}</h1>
+                );
+            }
+        });
+        var Link = React.createClass({
+            render: function() {
+                return (
+                    <a href = {this.props.site}>
+                        {this.props.site}
+                    </a>
+                );
+            }
+        });
+        ReactDOM.render(
+            <WebSite name = 'shirley的博客' site='http://shirley5li.me/' />,
+            document.getElementById('example3')
+        );
+
+        /* example4 React State */
+        // React 把组件看成是一个状态机（State Machines）。通过与用户的交互，实现不同状态，然后渲染 UI，让用户界面和数据保持一致。
+        // React 里，只需更新组件的 state，然后根据新的 state 重新渲染用户界面（不要操作 DOM）。
+        // 创建了 LikeButton 组件,getInitialState 方法用于定义初始状态，也就是一个对象，这个对象可以通过 this.state 属性读取。
+        // 当用户点击组件，导致状态变化，this.setState 方法就修改状态值，每次修改以后，自动调用 this.render 方法，再次渲染组件。 
+        var LikeButton = React.createClass({
+            getInitialState: function() {
+                return {liked: false};
+            },
+            handleClick: function(event) {
+                this.setState({liked: !this.state.liked});
+            },
+            render: function() {
+                var text = this.state.liked ? '喜欢' : '不喜欢';
+                return (
+                    <p onClick = {this.handleClick}>
+                        点击切换状态:{text}
+                    </p>
+                );
+            }
+        });
+        ReactDOM.render(
+            <LikeButton />,
+            document.getElementById("example4")
+        );
+   
+        /* example5 React Props */
+
+        // 类似于example2
+        // state 和 props 主要的区别在于 props 是不可变的，而 state 可以根据与用户交互来改变。
+        // 这就是为什么有些容器组件需要定义 state 来更新和修改数据。 而子组件只能通过 props 来传递数据。
+
+        // 通过 getDefaultProps() 方法为 props 设置默认值
+        var HelloMessage5 = React.createClass({
+            getDefaultProps: function() {
+                return {
+                    name: 'haha'
+                };
+            },
+            render: function() {
+                return <h1>Hello {this.props.name}</h1>;
+            }
+        });
+        ReactDOM.render(
+            <HelloMessage5 />,
+            document.getElementById('example5.1')
+        );
+
+        // 组合使用 state 和 props 
+        // 在父组件中设置 state， 并通过在子组件上使用 props 将其传递到子组件上。
+        // 在 render 函数中, 设置 name 和 site 来获取父组件传递过来的数据。
+        var WebSite = React.createClass({
+            getInitialState: function() {
+                return {
+                    name: "shirley的博客",
+                    site: "http://shirley5li.me/"
+                };
+            },
+            render: function() {
+                return (
+                    <div>
+                        <Name name = {this.state.name} />
+                        <Link site = {this.state.site} />
+                    </div>
+                );
+            }
+        });
+        var Name = React.createClass({
+            render: function() {
+                return (
+                    <h2>{this.props.name}</h2>
+                );
+            }
+        });
+        var Link = React.createClass({
+            render: function() {
+                return (
+                    <a href = {this.props.site}>
+                        {this.props.site}
+                    </a>
+                );
+            }
+        });
+        ReactDOM.render(
+            <WebSite />,
+            document.getElementById('example5.2')
+        );
+
+        // Props 验证
+        // Props 验证使用 propTypes，它可以保证我们的应用组件被正确使用
+        // React.PropTypes 提供很多验证器 (validator) 来验证传入数据是否有效
+        // 当向 props 传入无效数据时，JavaScript 控制台会抛出警告。
+        // 以下实例创建一个 Mytitle 组件，属性 title 是必须的且是字符串，非字符串类型会自动转换为字符串
+        var title = "shirley 的博客";
+        // var title = 123;n
+        var MyTitle = React.createClass({
+            propTypes: {
+                title: React.PropTypes.string.isRequired,
+            },
+            render: function() {
+                return (
+                    <h2> {this.props.title} </h2>
+                );
+            }
+        });
+        ReactDOM.render(
+            <MyTitle title = {title}/>,
+            document.getElementById('example5.3')
+        );
+
+        /* example6 React组件 API */
+        
+        // 6.1 设置状态:setState
+        // setState(object nextState[, function callback])
+        // 合并nextState和当前state，并重新渲染组件
+        // nextState，将要设置的新状态，该状态会和当前的state合并
+        // callback，可选参数，回调函数。该函数会在setState设置成功，且组件重新渲染后调用。
+        // setState是React事件处理函数中和请求回调函数中触发UI更新的主要方法。 
+        // 不能在组件内部通过this.state修改状态，因为该状态会在调用setState()后被替换。 
+        // setState()并不会立即改变this.state，而是创建一个即将处理的state。
+        // setState()并不一定是同步的，为了提升性能React会批量执行state和DOM渲染。
+        //  setState()总是会触发一次组件重绘，除非在shouldComponentUpdate()中实现了一些条件渲染逻辑。
+        var Counter = React.createClass({
+            getInitialState: function() {
+                return {clickCount: 0};
+            },
+            handleClick: function() {
+                this.setState(function (state) {
+                    return {clickCount: state.clickCount + 1};
+                });
+            },
+            render: function() {
+                return (
+                    <h2 onClick = {this.handleClick}> 点击此处！次数为：{this.state.clickCount}</h2>
+                );
+            }
+        });
+        ReactDOM.render(
+            <Counter />,
+            document.getElementById('example6.1')
+        );
+
+        // 6.2 替换状态：replaceState
+        // replaceState(object nextState[, function callback])
+        // nextState，将要设置的新状态，该状态会替换当前的state。
+        // eplaceState()方法与setState()类似，但是方法只会保留nextState中状态，原state不在nextState中的状态都会被删除
+
+        // 6.3 设置属性：setProps
+        // setProps(object nextProps[, function callback])
+        // nextProps，将要设置的新属性，该状态会和当前的props合并
+        // props相当于组件的数据流，它总是会从父组件向下传递至所有的子组件中。
+        // 当和一个外部的JavaScript应用集成时，我们可能会需要向组件传递数据或通知React.render()组件需要重新渲染，可以使用setProps()。 
+        // 更新组件，我可以在节点上再次调用React.render()，也可以通过setProps()方法改变组件属性，触发组件重新渲染。
+
+        // 6.4 替换属性：replaceProps
+        // replaceProps(object nextProps[, function callback])
+
+        // 6.5 强制更新：forceUpdate
+        // forceUpdate([function callback])
+        // callback，可选参数，回调函数。该函数会在组件render()方法调用后调用。
+        // forceUpdate()方法会使组件调用自身的render()方法重新渲染组件，组件的子组件也会调用自己的render()
+        // 但是，组件重新渲染时，依然会读取this.props和this.state，如果状态没有改变，那么React只会更新DOM。
+        // forceUpdate()方法适用于this.props和this.state之外的组件重绘（如：修改了this.state后），通过该方法通知React需要调用render() 
+        // 应该尽量避免使用forceUpdate()，而仅从this.props和this.state中读取状态并由React触发render()调用。
+
+        // 6.6 获取DOM节点：findDOMNode
+        // 如果组件已经挂载到DOM中，该方法返回对应的本地浏览器 DOM 元素。
+        // 当render返回null 或 false时，this.findDOMNode()也会返回null。
+        // 从DOM 中读取值的时候，该方法很有用，如：获取表单字段的值和做一些 DOM 操作
+
+        // 6.7 判断组件挂载状态：isMounted
+        // isMounted()方法用于判断组件是否已挂载到DOM中。
+        // 可以使用该方法保证了setState()和forceUpdate()在异步场景下的调用不会出错。
+
+        
+        /* example7 React组件 生命周期 */
+        
+        // Mounting：已插入真实 DOM
+        // Updating：正在被重新渲染
+        // Unmounting：已移出真实 DOM
+        // 生命周期有许多方法，例如以下方法：
+        // example 7.1
+        // componentDidMount : 在第一次渲染后调用，只在客户端。
+        // 之后组件已经生成了对应的DOM结构，可以通过this.getDOMNode()来进行访问
+        // 如果你想和其他JavaScript框架一起使用，可以在这个方法中调用setTimeout, setInterval或者发送AJAX请求等操作(防止异部操作阻塞UI)。
+        // 以下实例在 Hello 组件加载以后，通过 componentDidMount 方法设置一个定时器，
+        // 每隔100毫秒重新设置组件的透明度，并重新渲染。
+        var Hello = React.createClass({
+            getInitialState: function() {
+                return {
+                    opacity: 1.0
+                };
+            },
+            componentDidMount: function() {
+                this.timer = setInterval(function() {
+                    var opacityVal = this.state.opacity;
+                    opacityVal -= .05;
+                    if(opacityVal < 0.1) {
+                        opacityVal = 1.0;
+                    }
+                    this.setState({
+                        opacity: opacityVal
+                    });
+                }.bind(this),100);
+            },
+            render: function() {
+                return (
+                    <div style = {{opacity: this.state.opacity}}>
+                        Hello {this.props.name}
+                    </div>
+                )
+            }
+        });
+        ReactDOM.render(
+            <Hello name="shirley" />,
+            document.getElementById('example7.1')
+        );
+
+        // example 7.2
+        // 以下实例初始化 state ， setNewnumber 用于更新 state。
+        // 所有生命周期在 Content 组件中。
+        var Button = React.createClass({
+            getInitialState: function() {
+                return {
+                    data: 0
+                }
+            },
+            setNewNumber: function() {
+                this.setState({data: this.state.data + 1});
+            },
+            render: function() {
+                return (
+                    <div>
+                        <button onClick = {this.setNewNumber}>点击此处增加</button>
+                        <Content myNumber = {this.state.data}></Content>
+                    </div>
+                )
+            }
+        });
+        var Content = React.createClass({
+            componentWillMount: function() {
+                console.log("Component Will Mount!");
+            },
+            componentDidMount: function() {
+                console.log("Component Did Mount!");
+            },
+            componentWillReceiveProps: function(newProps) {
+                console.log('Component WILL RECEIVE PROPS!');
+            },
+            shouldComponentUpdate:function(newProps, newState) {
+                return true;
+             },
+             componentWillUpdate:function(nextProps, nextState) {
+                console.log('Component WILL UPDATE!');
+            },
+            componentDidUpdate:function(prevProps, prevState) {
+                console.log('Component DID UPDATE!')
+            },
+            componentWillUnmount:function() {
+                console.log('Component WILL UNMOUNT!')
+            },
+            render: function() {
+                return (
+                    <div>
+                        <h3>{this.props.myNumber}</h3>
+                    </div>
+                );
+            }
+        });
+        ReactDOM.render(
+            <div>
+                <Button />
+            </div>,
+            document.getElementById('example7.2')
+        );
+
+
+    /* example8 React Ajax */
+    // React 组件的数据可以通过 componentDidMount 方法中的 Ajax 来获取
+    // 当从服务端获取数据时可以将数据存储在 state 中，再用 this.setState 方法重新渲染 UI。
+    // 当使用异步加载数据时，在组件卸载前使用 componentWillUnmount 来取消未完成的请求。
+    // 以下实例演示了获取 Github 用户最新 gist 共享描述: 
+    var UserGist = React.createClass({
+        getInitialState: function() {
+            return {
+                username: '',
+                lastGistUrl: ''
+            }
+        },
+        componentDidMount: function() {
+            // 也可以使用jQuery ajax发送get请求，要相对简单一些，此处用了原生js ajax方法
+            var XHR = new XMLHttpRequest();        
+            var url = this.props.source;
+            XHR.onreadystatechange = function() {
+                if (XHR.readyState === 4) {
+                    var lastGist = JSON.parse(XHR.responseText)[0];//注意：ajax返回的responseText是json字符串，需要解析获取其中的对象
+                    this.setState({
+                        username: lastGist.owner.login,
+                        lastGistUrl: lastGist.html_url
+                    });
+                }
+            }.bind(this);
+            XHR.open("get", url, true);
+            XHR.send(null);
+            this.xhr = XHR;
+        },
+        componentWillUnmount: function() {
+            this.xhr.abort();//调用abort()方法后，xhr对象会停止触发事件，在接收到响应之前，来取消异步请求
+        },
+        render: function() {
+            return (
+                <div>
+                    <b>{this.state.username}</b>用户最新的Gist地址：
+                    <a href={this.state.lastGistUrl}>{this.state.lastGistUrl}</a>
+                </div>
+            );
+        }
+    });
+    ReactDOM.render(
+        <UserGist source="https://api.github.com/users/octocat/gists" />,
+        document.getElementById('example8')
+    );
+
+
+     /* example9 React 表单与事件 */
+
+    //  example 9.1
+    // 在实例中我们设置了输入框 input 值value = {this.state.data}。
+    // 在输入框值发生变化时我们可以更新 state。
+    // 使用 onChange 事件来监听 input 的变化，并修改 state。
+    var HelloMessage9 = React.createClass({
+        getInitialState: function() {
+            return {
+                value: "Hello stranger!"
+            };
+        },
+        handleChange: function(event) {
+            this.setState({value: event.target.value});
+        },
+        render: function() {
+            var value = this.state.value;
+            return(
+                <div>
+                    <input type="text" value={value} onChange={this.handleChange} />
+                    <h4>{value}</h4>
+                </div>
+            );
+        }
+    });
+    ReactDOM.render(
+        <HelloMessage9 />,
+        document.getElementById("example9.1")
+    );
+
+    //  example 9.2 在子组件上使用表单
+    //  onChange 方法将触发 state 的更新并将更新的值传递到子组件的输入框的 value 上来重新渲染界面。
+    // 需要在父组件通过创建事件句柄 (handleChange) ，并作为 prop (updateStateProp) 传递到你的子组件上。
+    // 当需要从子组件中更新父组件的 state 时，你需要在父组件通过创建事件句柄 (handleChange) ，并作为 prop (updateStateProp) 传递到你的子组件上
+    var SubContent = React.createClass({
+        render: function() {
+            return (
+                <div>
+                    <input type="text" value={this.props.myDataProp} onChange={this.props.updateStateProp} />
+                    <h4>{this.props.myDataProp}</h4>
+                </div>
+            );
+        }
+    });
+    var Container = React.createClass({
+        getInitialState: function() {
+            return {
+                value: "hello 你好"
+            };
+        },
+        handleChange: function(event) {
+            this.setState({value: event.target.value});
+        },
+        render: function() {
+            var value = this.state.value;
+            return (
+                <div>
+                    <SubContent myDataProp={value} updateStateProp={this.handleChange}></SubContent>
+                </div>
+            );
+        }
+    });
+    ReactDOM.render(
+        <Container />,
+        document.getElementById("example9.2")
+    );
+
+     /* example10 React Refs */
+    //  React 支持一种非常特殊的属性 Ref ，你可以用来绑定到 render() 输出的任何组件上。
+    // 这个特殊的属性允许你引用 render() 返回的相应的支撑实例（ backing instance ）。
+    // 这样就可以确保在任何时间总是拿到正确的实例。
+    //  绑定一个 ref 属性到 render 的返回值上：
+    // <input ref="myInput" />
+    // var input = this.refs.myInput;
+    // var inputValue = input.value;
+    // var inputRect = input.getBoundingClientRect();
+    // 可以通过使用 this 来获取当前 React 组件，或使用 ref 属性来获取组件的引用
+    var Component10 = React.createClass({
+        handleClick: function() {
+            // 使用原生的 DOM API 获取焦点
+            this.refs.myInput.focus();
+        },
+        render: function() {
+            // //  当组件插入到 DOM 后，ref 属性添加一个组件的引用于到 this.refs
+            return (
+                <div>
+                    <input type="text" ref="myInput" />
+                    <input type="button" value="点我输入框获取焦点" onClick={this.handleClick} />
+                </div>
+            );
+        }
+    });
+    ReactDOM.render(
+        <Component10 />,
+        document.getElementById("example10")
+    );
+    
+    </script>
+</body>
+</html>
