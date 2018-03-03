@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tab标签页切换实现</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+        }
+        #tab {
+            width: 500px;
+            margin: 0 auto;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1em;
+        }
+        #tabNav {
+            border-style: none;
+            color:#757575;
+            background:#E5E5E5;
+        }
+        #tabNav span {
+            display: inline-block;
+            width: 100px;
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-right: 10px;
+            margin-bottom: 0px;
+            margin-top: 0px;
+           text-align: center;
+        }
+        #tabContent {
+            text-align: center;
+            padding-top: 20px;
+        }
+        #tabContent div {
+            display: none;
+        }
+        .selected {
+            background:#FFE4E1;
+        }
+        #tabContent .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>林夕经典歌曲</h1>
+    <div id="tab">
+        <div id="tabNav">
+            <span class="selected">明年今日</span>
+            <span>再见二丁目</span>
+            <span>似是故来人</span>
+            <span>路过蜻蜓</span>
+        </div>
+        <div id="tabContent">
+            <div class="show">
+                明年今日未见你一年
+                <br/> 谁舍得改变 离开你六十年
+                <br/> 但愿能认得出你的子女
+                <br/> 临别亦听得到你讲再见
+                <br/> 在有生的瞬间能遇到你
+                <br/> 竟花光所有运气
+                <br/> 到这日才发现
+                <br/> 曾呼吸过空气
+            </div>
+            <div>
+                如能忘掉渴望 岁月长 衣裳薄
+                <br/> 无论于什么角落 不假设你或会在旁
+                <br/> 我也可畅游异国 放心吃喝
+                <br/> 原来我非不快乐 只我一人未发觉
+                <br/> 转街过巷 就如滑过浪潮
+                <br/> 听天说地 仍然剩我心跳
+                <br/> 关于你 冥想不了 可免都免掉
+                <br/> 情和欲 留待下个化身燃烧
+                <br/>
+            </div>
+            <div>
+                同是过路 同做过梦 本应是一对
+                <br/> 人在少年 梦中不觉 醒后要归去
+                <br/> 三餐一宿 也共一双 到底会是谁
+                <br/> 但凡未得到 但凡是过去 总是最登对
+                <br/> 台下你望 台上我做 你想做的戏
+                <br/> 前世故人 忘忧的你 可曾记得起
+                <br/> 欢喜伤悲 老病生死 说不上传奇
+                <br/>
+            </div>
+            <div>
+                若你没法为我安定
+                <br/> 宁愿同渡流浪旅程
+                <br/> 不怕面对这无常生命
+                <br/> 若你没有愉快心情
+                <br/> 来吧描述谁欠你情
+                <br/> 黑了倦眼都侧耳倾听
+                <br/> 让我做只路过蜻蜓
+                <br/> 留下能被怀念过程
+                <br/> 虚耗着我这便宜生命
+                <br/>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var tabs = document.getElementById("tabNav").getElementsByTagName("span");
+        var contents = document.getElementById("tabContent").getElementsByTagName('div');
+        (function changeTab(tab) {
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].onmouseover = showTab;
+            }
+        })();
+        function showTab() {
+            for (var i = 0; i < tabs.length; i++) {
+                if (tabs[i] === this) {
+                    tabs[i].className = "selected";
+                    contents[i].className = "show";
+                } else {
+                    tabs[i].className = "";
+                    contents[i].className = "";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
