@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原生Javascript实现瀑布流效果</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            position: relative;
+        }
+        img {
+            width: 350px;
+            display: block;
+        }
+        .item {
+            position: absolute;
+            box-shadow: 2px 2px 2px #999;
+        }
+    </style>
+</head>
+<body>
+    <!-- HTML结构 -->
+    <div id="box">
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image2.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image19.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image4.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image7.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image18.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image3.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image16.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image1.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image14.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image17.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image10.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image12.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image20.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image22.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image9.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image6.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image28.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image13.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image24.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image8.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image15.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image11.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image23.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image21.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image27.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image5.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image25.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image29.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image26.jpg" alt=""></div>
+        <div class="item"><img src="http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image30.jpg" alt=""></div>
+    </div>
+    <!-- JS部分 -->
+    <script type="text/javascript">
+        var box = document.getElementById("box");
+        var items = box.getElementsByClassName("item");
+        // 每一列之间的间隙为 20px
+        var gap = 20;
+        window.onload = function() {
+            // 页面一加载完就调用一次
+            waterFall();
+            // 将瀑布流效果封装
+            function waterFall() {
+                // 1-确定列数 列数=页面宽度/(图片宽度+间隙宽度)
+                var pageWidth = getClient().width;
+                var itemWidth = items[0].offsetWidth;//350px
+                var columns = parseInt(pageWidth / (itemWidth + gap));
+                var arr = [];//用来记录第一行各item的高度
+                for (var i = 0; i < items.length; i++) {
+                    // 2-排列第一行 
+                    if(i < columns) {
+                        items[i].style.top = 0;
+                        items[i].style.left = (itemWidth + gap) * i + 'px';
+                        arr.push(items[i].offsetHeight);
+                    } else {
+                        // 其他行
+                        // 3-找到数组中最小的高度 及对应的索引
+                        var minHeight = arr[0];
+                        var index = 0;
+                        for (var j = 0; j < arr.length; j++) {
+                            if (arr[j] < minHeight) {
+                                minHeight = arr[j];
+                                index = j;
+                            }
+                        }
+                        // 4-设置下一行的第一个盒子位置
+                        // top值即为最小列的高度 + gap
+                        items[i].style.top = arr[index] + gap + 'px';
+                        // left值即为最小列距离左边的长度
+                        items[i].style.left = items[index].offsetLeft + 'px';
+
+                        // 5-修改最小列的高度
+                        // 最小列的高度=当前自身的高度 + 拼接的元素的高度 + gap
+                        arr[index] = arr[index] + items[i].offsetHeight + gap;
+                    }
+                }
+            }
+            // 页面尺寸改变时实时触发,以实现自适应客户窗口宽度
+            window.onresize = function() {
+                waterFall();
+            };
+            
+            // 懒加载效果处理
+            // 当加载到第30张的时候,应该加载下一批图片。
+            window.onscroll = function() {
+                if (getClient().height + getScrollTop() >= items[items.length -1].offsetTop) {
+                    // 模拟ajax获取数据
+                    var datas = ["http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image5.jpg", 
+                    "http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image11.jpg",
+                     "http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image9.jpg",
+                     "http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image10.jpg",
+                     "http://ou3oh86t1.bkt.clouddn.com/demo/waterfall/images/image18.jpg"];
+                    // 创建新的item元素追加到原来的页面上
+                    for (var i = 0; i < datas.length; i++) {
+                        var div = document.createElement("div");
+                        div.className = "item";
+                        div.innerHTML = '<img src="' + datas[i] + '" alt="">';
+                        box.appendChild(div);
+
+                    }
+                    waterFall();
+                }
+            };
+            // clientWidth兼容性处理
+            function getClient() {
+                return {
+                    width: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+                    height: window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+                }
+            }
+            // scrollTop兼容性处理
+            function getScrollTop() {
+                return window.pageYOffset || document.documentElement.scrollTop;
+            }
+        };
+    </script>
+    
+</body>
+</html>
