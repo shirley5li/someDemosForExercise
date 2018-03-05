@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2018 春季阿里 前端实习 在线测评编程题实现</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #wrapper {
+            height: 5000px;
+            /* position: relative; */
+        }
+        #box1{
+            width: 300px;
+            height: 100px;
+            background: #000;
+            position: absolute;
+            top: 0px;
+        }
+        #box2 {
+            width: 300px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            top: 100px;
+        }
+    </style>
+    <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.mousewheel.js"></script>
+</head>
+<body>
+    <!-- 当鼠标滚动的时候，box1以鼠标滚动2倍的速度运动，box2以鼠标滚动3倍的速度运动。 -->
+    <!-- 初步就是这样，但效果不怎么好 -->
+    <div id="wrapper">
+        <div id="box1"></div>
+        <div id="box2"></div>
+    </div>
+    <!-- 这里是答题区 -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var box1 = $("#box1");
+            var box2 = $("#box2");
+            $(window).mousewheel(function(event) {
+                console.log(event.deltaX, event.deltaY, event.deltaFactor);
+                // 鼠标垂直方向滚动的距离（为正表示向上滚动，为负表示向下滚动）
+                var scrollDistance = event.deltaY * event.deltaFactor;
+                // console.log(scrollDistance);
+                // box1 box2随鼠标滚动距离改变
+                var newTop1 = box1.position().top - 1 * scrollDistance;
+                var newTop2 = box2.position().top - 2 * scrollDistance;
+                box1.css("top", newTop1);
+                box2.css("top", newTop2);
+            });
+        });
+    </script>
+</body>
+</html>
