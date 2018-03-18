@@ -1,0 +1,10 @@
+<!-- 主页或用户页的视图模板设计， 主页与用户页通过 url 中的 author 区分 -->
+<!-- 主页是网站的主页，用户页指用户个人的主页 -->
+
+<%- include('header') %>
+
+<% posts.forEach(function (post) { %>
+  <%- include('components/post-content', { post: post }) %>
+<% }) %>
+
+<%- include('footer') %>

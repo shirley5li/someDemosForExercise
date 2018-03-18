@@ -1,0 +1,33 @@
+<!-- 发表文章页的视图模板设计 -->
+
+<%- include('header') %>
+
+<div class="ui grid">
+    <div class="four wide column">
+        <!-- user变量是通过主目录下 index.js中的模板变量获得的 -->
+        <a class="avatar avatar-link"
+            href="/posts?author=<%= user._id %>" 
+            data-title="<%= user.name %> | <%= ({m: '男', f: '女', x: '保密'})[user.gender] %>"
+            data-content="<%= user.bio %>">
+            <img class="avatar" src="/img/<%= user.avatar %>">
+        </a>
+    </div>
+
+    <div class="eight wide column">
+        <form class="ui form segment" method="POST">
+            <!-- 文章标题字段 -->
+            <div class="field required">
+                <label>标题</label>
+                <!-- name用于服务器端处理路由时，req.fields.title; -->
+                <input type="text" name="title">
+            </div>
+            <!-- 文章正文内容字段 -->
+            <div class="field required">
+                <label>内容</label>
+                <textarea name="content" rows="15"></textarea>
+            </div>
+            <!-- 提交按钮 -->
+            <input type="submit" class="ui button" value="发布">
+        </form>
+    </div>
+</div>

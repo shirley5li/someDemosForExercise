@@ -1,0 +1,52 @@
+<!-- 注册页的视图模板设计 -->
+<!-- 使用ejs模板，semantic ui -->
+<%- include('header') %>
+
+<div class="ui grid">
+    <!-- 定义网格的宽度为4个大小 -->
+    <div class="four wide column"></div>
+    <div class="eight wide column">
+        <!-- 将整个注册页填写的信息作为一个表单数据上传 -->
+        <!-- form 表单要添加 enctype="multipart/form-data" 属性才能上传文件。 -->
+        <form class="ui form segment" method="POST" enctype="multipart/form-data">
+            <!-- 用户名字段 -->
+            <div class="field required">
+                <label>用户名</label>
+                <input placeholder="用户名" type="text" name="name">
+            </div>
+            <!-- 密码字段 -->
+            <div class="field required">
+                <label>密码</label>
+                <input placeholder="密码" type="password" name="password">
+            </div>
+            <!-- 重复密码字段 -->
+            <div class="field required">
+                <label>重复密码</label>
+                <input placeholder="重复密码" type="password" name="repassword">
+            </div>
+            <!-- 性别字段 -->
+            <div class="field required">
+                <label>性别</label>
+                <select class="ui compact selection dropdown" name="gender">
+                    <option value="m">男</option>
+                    <option value="f">女</option>
+                    <option value="x">保密</option>
+                </select>
+            </div>
+            <!-- 上传头像字段 -->
+            <div class="field required">
+                <label>头像</label>
+                <input type="file" name="avatar">    
+            </div>
+            <!-- 个人简介字段 -->
+            <div class="field required">
+                <label>个人简介</label>
+                <textarea name="bio" rows="5"></textarea>
+            </div>
+            <!-- 注册提交按钮字段, fluid会让按钮的长度充满form -->
+            <input type="submit" class="ui button fluid" value="注册">
+        </form>
+    </div>
+</div>
+
+<%- include('footer') %>

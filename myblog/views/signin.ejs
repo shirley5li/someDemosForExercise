@@ -1,0 +1,24 @@
+<!-- 登录页的视图模板设计 -->
+
+<%- include('header') %>
+
+<div class="ui grid">
+    <div class="four wide column"></div>
+    <div class="eight wide column">
+        <form class="ui form segment" method="POST">
+            <!-- 用户名字段 -->
+            <div class="field required">
+                <label>用户名</label>
+                <input placeholder="用户名" type="text" name="name">
+            </div>
+            <!-- 密码字段 -->
+            <div class="field required">
+                <label>密码</label>
+                <input placeholder="密码" type="password" name="password">
+            </div>
+            <input type="submit" class="ui button fluid" value="登录">
+        </form>
+    </div>
+</div>
+
+<%- include('footer') %>

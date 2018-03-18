@@ -1,0 +1,15 @@
+<!-- header模块的nav部分 -->
+<div class="nav">
+    <!-- Semantic 网格，默认主题使用16列 -->
+    <div class="ui grid">
+        <div class="four wide column"></div>
+
+        <div class="eight wide column">
+            <!-- 设置博客名 -->
+            <!-- 将 blog 变量挂载到 app.locals 下 -->
+            <a href="/posts"><h1><%= blog.title %></h1></a>
+            <!-- 设置博客简介 -->
+            <p><%= blog.description %></p>
+        </div>
+    </div>
+</div>
