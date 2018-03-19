@@ -1,0 +1,69 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+ul, ol {
+    list-style: none;
+}
+/* 消除图片底部3像素距离 */
+img {
+    vertical-align: top;
+}
+.scroll {
+    width: 500px;
+    height: 200px;
+    margin: 100px auto;
+    border: 1px solid #ccc;
+    padding: 7px;
+    overflow: hidden;
+    position: relative;
+}
+.arrows {
+    z-index: 9999;
+    position: absolute;
+    padding-top: 80px;
+    width: 800px;
+}
+.arrows span {
+    font-size: 2em;
+    color: seashell;
+}
+.arrows span:hover {
+    cursor: pointer;
+    background-color: rgba(192, 192, 192, 0.29);
+}
+.arrows .rightArrow {
+    margin-left: 450px;
+}
+.box{
+        width: 500px;
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+    }
+.box ul {
+    width: 600%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.box ul li {
+    float: left;
+}
+.box ol {
+    position: absolute;
+    left: 30%;
+    bottom: 10px;
+}
+.box ol li {
+    float: left;
+    width: 20px;
+    height: 20px;
+    color: #999;
+    background-color: #FFF0F5;
+    text-align: center;
+    border-radius: 50%;
+    margin-left: 10px;
+    cursor: pointer;
+}
