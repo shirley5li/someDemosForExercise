@@ -146,8 +146,8 @@ function outputFiles(pathnames, writer) {
 // 因此第一个命令行参数从argv[2]这个位置开始。
 main(process.argv.slice(2));
 
-process.on('SIGTERM', function() {
-    server.close(function() {
-        process.exit(0);
-    });
-});
+// process.on('SIGTERM', function() {
+//     server.close(function() {
+//         process.exit(0);
+//     });
+// });
