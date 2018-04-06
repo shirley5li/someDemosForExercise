@@ -1,0 +1,42 @@
+page {
+    height: 100%;
+    background-color: #b3d4db;
+}
+
+.container {
+     display: flex; 
+     flex-direction: column;
+     align-items: center;     
+}
+
+
+.user-avatar {
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 50%;
+     margin-top: 160rpx; 
+}
+
+.user-name {
+    margin-top: 100rpx;
+    font-size: 32rpx;
+    font-weight: bold;
+}
+
+.motto-container {
+    margin-top: 200rpx;
+    border: 1px solid #405f80;
+    width: 200rpx;
+    height: 80rpx;
+    border-radius: 10rpx;
+    text-align: center; /*实现框框内文字的水平居中*/
+
+
+}
+
+.motto {
+    font-size: 22rpx;
+    font-weight: bold;
+    line-height: 80rpx; /*通过设置文字的line-height等于容器的高度，实现文字的垂直居中*/
+    color: #405f80;
+}

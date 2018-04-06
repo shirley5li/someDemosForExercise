@@ -1,0 +1,17 @@
+@import "post-item-template/post-item-template.wxss";
+
+.posts-list-container {
+    background-color: #ededed;
+}
+swiper {
+    width: 100%;
+    height: 500rpx;
+}
+
+swiper image {
+    width: 100%;
+    height: 500rpx;
+}
+
+
+

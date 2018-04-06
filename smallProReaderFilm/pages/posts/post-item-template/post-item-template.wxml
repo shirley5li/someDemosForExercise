@@ -1,0 +1,21 @@
+<!--每篇文章的标签模板  -->
+<template name="postItem">
+    <view class='post-container'>
+        <!--第一部分,头像、日期  -->
+        <view class='post-author-date'>
+            <image class='post-author' src="{{avatar}}"></image>
+            <text class='post-date'>{{date}}</text>
+        </view>
+        <!--第二部分，文章标题、图片、文章内容  -->
+        <text class='post-title'>{{title}}</text>
+        <image class='post-image' src="{{imgSrc}}"></image>
+        <text class='post-content'>{{content}}</text>
+        <!--第三部分， 点赞、浏览 -->
+        <view class='post-like'>
+            <image class='post-like-image' src='/images/icon/chat.png'></image>
+            <text class="post-like-font">{{collection}}</text>
+            <image class='post-like-image' src='/images/icon/view.png'></image>
+            <text class="post-like-font">{{reading}}</text>
+        </view>
+    </view>
+</template>

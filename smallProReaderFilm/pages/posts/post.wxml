@@ -1,0 +1,34 @@
+<import src="post-item-template/post-item-template.wxml" />
+
+<view class='posts-list-container'>
+<!--轮播图  -->
+<view>
+    <swiper catchtap='onSwiperTap' indicator-dots="true" autoplay='true' interval='5000' circular='true'>
+        <swiper-item>
+            <image src='/images/swiper1.jpg' data-postId="0" ></image>
+        </swiper-item>
+
+        <swiper-item>
+            <image src='/images/swiper2.jpg' data-postId="1"></image>
+        </swiper-item>
+
+        <swiper-item>
+            <image src='/images/swiper3.jpg' data-postId="2"></image>
+        </swiper-item>
+
+        <swiper-item>
+            <image src='/images/swiper4.jpg' data-postId="3"></image>
+        </swiper-item>
+    </swiper>
+</view>
+
+<!--文章列表  -->
+<block wx:for="{{posts_key}}" wx:for-item="item" wx:for-index="idx">
+    <!--引用postItem模板  -->
+    <!-- 由于template不能绑定事件，因此用view包裹，在view上绑定事件 -->
+    <view catchtap='onPostTap' data-postId="{{item.postId}}">
+        <template is="postItem" data="{{...item}}" />
+    </view>
+</block>
+
+</view>

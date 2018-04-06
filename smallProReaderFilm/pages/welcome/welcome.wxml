@@ -1,0 +1,8 @@
+<!--在最外层还默认包含一个page容器，可以在page容器中设置整个页面全局的背景色  -->
+<view class='container'>
+    <image src='/images/avatar.jpg' class='user-avatar'></image>
+    <text class='user-name'>Hello，Shirley</text>
+    <view class='motto-container'bindtap='onTap'>
+        <text class='motto'>开启小程序之旅</text>
+    </view>
+</view>
