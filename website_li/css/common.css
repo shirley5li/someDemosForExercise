@@ -1,0 +1,45 @@
+/* 几个页面之间的公共样式表 */
+.navbar-nav {
+    float: right;
+    margin-top:12px;
+    font-size: 16px;
+  }
+
+footer {
+    background: url("../images/footer_bg.jpg") center / cover no-repeat;
+  }
+
+footer > div {
+    padding: 20px 0 10px;
+    color: white;
+    background: rgba(100, 100, 100, 0.8);
+  }
+
+footer .div_last {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 12px;
+  }
+
+footer .div1,
+footer .div2 {
+  padding: 0 50px;
+  line-height: 30px;
+}
+
+footer .div1 h3 {
+    font-size: 2em;
+  }
+
+footer .div1 p {
+    text-indent: 14em;
+  }
+
+footer .div2 {
+    border-left: 2px solid #fff;
+    font-size: 14px;
+  }
+
+li{
+    list-style-type: none;
+  }

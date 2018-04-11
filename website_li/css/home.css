@@ -1,0 +1,177 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.logo img{
+    width: 100px;
+    height: 50px;
+    margin-top: -10px;
+}
+
+header nav {
+    background-color: #000;
+}
+
+.navbar-nav {
+    float: right;
+	margin-top:12px;
+	font-size: 16px;
+}
+
+#banner {
+    margin-top: 62px;
+    height: 700px;
+
+}
+
+#banner li {
+    padding-top: 20px;
+    height: 700px;
+    padding-bottom: 200px;
+    display: none;
+}
+
+#banner .ad_txt {
+    color: #fff;
+    font-style: bold;
+    margin-top: 100px;
+    padding: 20px;
+    text-align: center;
+}
+
+#banner .ad_txt h2 {
+    margin-bottom: 20px;
+}
+
+#banner .ad_txt a {
+    background-color: #0084cf;
+    color: #fff;
+    padding: 8px 28px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 20px;
+}
+
+#banner .ad_txt a:hover {
+    background-color: transparent;
+    border: 1px solid #0084cf;
+}
+#banner .ad_img {
+    position: relative;
+ }
+
+#banner .item1 {
+    display: flex;
+}
+
+#banner .banner_ctr {
+    text-align: center;
+    position: relative;
+    top: -190px;
+}
+
+#banner .banner_ctr>div {
+    margin: 0 auto;
+    width: 612px;
+    height: 156px;
+    position: relative;
+}
+
+#banner .banner_ctr div.ctr {
+    width: 112px;
+    height: 156px;
+    position: absolute;
+    left: 17px;
+}
+
+#banner .banner_ctr div.ctrBack {
+    background-color: #0084cf;
+    border-radius: 4px;
+}
+
+#banner .banner_ctr div.ctrFront {
+    z-index: 3;
+    background: url('../images/drag_banner_arrow.gif') center 15px no-repeat;
+}
+
+#banner .banner_ctr img {
+    z-index: 1;
+    position: absolute;
+    top: 15px;
+    left: 0;
+}
+
+#banner .banner_ctr ul{
+    z-index: 2;
+    position: absolute;
+    width: 580px;
+    height: 156px;
+    left: 17px;
+    margin: 0;
+}
+
+#banner .banner_ctr ul li{
+    width: 112px;
+    height: 156px;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+
+.products{
+    background: #F5F5F5;
+    padding: 80px 100px;
+  }
+
+.product-item{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    text-align: center;
+  }
+
+.products-header{
+	text-align: center;
+}
+
+.products-header .products-title{
+	font-family: 'Microsoft YaHei', serif;
+	font-weight:bold;
+	color: #f39c12;
+	margin-bottom: 80px;
+}
+
+
+
+.product-item h3{
+	font-family:  'SimHei', serif;
+	color: #2c3150;
+}
+
+.product-item p{
+	text-align: left;
+	font-family:  'SimHei', serif;
+	color: #666666;
+}
+
+.product-item .img-container{
+	width: 100%;
+    overflow: hidden;
+}
+
+.product-item img {
+    height: 250px;
+	width: 100%;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: scale(1.12);
+	transform: scale(1.12);
+}
+
+.product-item img:hover {
+	opacity: 0.5;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
