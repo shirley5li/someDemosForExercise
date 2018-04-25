@@ -35,7 +35,7 @@ create-react-app tictactoe-app
 
 ---
 
-<font color="red">补充：</font> [git bash下操作文件及文件夹命令](https://www.cnblogs.com/SamWeb/p/6516784.html)，常用命令如下：
+**补充：** [git bash下操作文件及文件夹命令](https://www.cnblogs.com/SamWeb/p/6516784.html)，常用命令如下：
 
 `cd` -->切换到哪个目录下， 如 `cd e:\fff`，表示切换 E 盘下面的fff 目录。
 
@@ -574,7 +574,7 @@ handleClick(i) {
 # node进程管理 #
 cd 到 `E:\someDemosForExercise\tictactoe-app`，执行 `npm start`后又提示3001端口被占用。
 
-这是因为之前启用过3001端口测试该app，但是关掉node窗口后，并没有杀死node进程。在[论坛](https://segmentfault.com/q/1010000010012292)看到，**`git bash here` 在WIN10下面 `CTRL+C` 是关闭不掉 node进程的**，所以需要手动关掉node进程，解除端口占用。
+这是因为之前启用过3001端口测试该app，但是关掉node窗口后，并没有杀死node进程。在[论坛](https://segmentfault.com/q/1010000010012292)看到，**`git bash here` 在WIN10下面 `CTRL+C` 是关闭不掉 node进程的** ，所以需要手动关掉node进程，解除端口占用。
 
 ## windows查看端口占用命令 ##
 1.查看端口对应的进程PID `netstat -ano | findstr "3001"`
@@ -586,9 +586,9 @@ cd 到 `E:\someDemosForExercise\tictactoe-app`，执行 `npm start`后又提示3
 ![杀死node进程](http://ou3oh86t1.bkt.clouddn.com/react-tictactoe/%E6%9D%80%E6%AD%BBnode%E8%BF%9B%E7%A8%8B.png)
 
 # 上传到github pages #
-参考[博客](https://www.cnblogs.com/liuboyingblog/p/8260233.html)
 
-**方法1**
+
+**方法1** (该种修改package.json的方式是官方建议的，但是以失败告终，有待进一步搞清楚原因。。。)
 
 1.修改package.json,添加 `"homepage" : "http://myname.github.io/app_name"`。
 
@@ -601,12 +601,14 @@ cd 到 `E:\someDemosForExercise\tictactoe-app`，执行 `npm start`后又提示3
 
 3.将pages地址贴在readme中，即`http://shirley5li.me/someDemosForExercise/tictactoe-app/build/#`
 
-**注意：**记得将.gitignore文件中的忽略build文件夹注释掉，不然build文件夹无法上传上去。
 
-**方法2**
+
+**方法2** （该方式参考[博客](https://www.cnblogs.com/liuboyingblog/p/8260233.html)，成功显示pages）
 
 1.修改package.json,添加 `"homepage" : "./"`。
 
 2.执行 `npm run build`
 
 3.将pages地址贴在readme中，即`http://shirley5li.me/someDemosForExercise/tictactoe-app/build/#`
+
+**注意：**记得将.gitignore文件中的忽略build文件夹注释掉，不然build文件夹无法上传上去。
