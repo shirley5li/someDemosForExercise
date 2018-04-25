@@ -1,7 +1,7 @@
-# [demo展示](http://shirley5li.me/someDemosForExercise/tictactoe-app/build/index.html) #
+# [demo展示](http://shirley5li.me/someDemosForExercise/tictactoe-app/public/index.html) #
 
 # 开发环境准备 #
-**1、**创建一个新的项目。
+**1、** 创建一个新的项目。
 
 新建文件夹`TicTacToe-ReactApp`，然后git bash到该文件夹，使用以下命令创建react app `tictactoe-app`。
 
@@ -11,17 +11,17 @@ create-react-app tictactoe-app
 
 ---
 
-**注意：**由于之前已经全局安装过`create-react-app`命令行工具了，所以此处可以直接使用`create-react-app tictactoe-app`命令创建react应用，若没有事先安装`create-react-app`命令行工具,先通过`npm install -g create-react-app`全局安装。
+**注意：** 由于之前已经全局安装过`create-react-app`命令行工具了，所以此处可以直接使用`create-react-app tictactoe-app`命令创建react应用，若没有事先安装`create-react-app`命令行工具,先通过`npm install -g create-react-app`全局安装。
 
 ---
 
-**2、**删除新项目 `src/` 文件夹中的所有文件（不要删除文件夹，只删除里面的文件）。
+**2、** 删除新项目 `src/` 文件夹中的所有文件（不要删除文件夹，只删除里面的文件）。
 
-**3、**在 `src/` 文件夹中添加一个名为 `index.css` 的文件，这个文件中包含 CSS代码 。
+**3、** 在 `src/` 文件夹中添加一个名为 `index.css` 的文件，这个文件中包含 CSS代码 。
 
-**4、**在 `src/` 文件夹中添加一个名为 `index.js` 的文件，这个文件中包含的 JS 代码。 
+**4、** 在 `src/` 文件夹中添加一个名为 `index.js` 的文件，这个文件中包含的 JS 代码。 
 
-**5、**在 src/ 文件夹 index.js 的文件中，在其顶部添加以下几行代码：
+**5、** 在 src/ 文件夹 index.js 的文件中，在其顶部添加以下几行代码：
 
 	import React from 'react';
 	import ReactDOM from 'react-dom';
@@ -35,7 +35,7 @@ create-react-app tictactoe-app
 
 ---
 
-**<font color="red">补充：</font>**[git bash下操作文件及文件夹命令](https://www.cnblogs.com/SamWeb/p/6516784.html)，常用命令如下：
+** <font color="red">补充：</font>**[git bash下操作文件及文件夹命令](https://www.cnblogs.com/SamWeb/p/6516784.html)，常用命令如下：
 
 `cd` -->切换到哪个目录下， 如 `cd e:\fff`，表示切换 E 盘下面的fff 目录。
 
@@ -60,11 +60,11 @@ create-react-app tictactoe-app
 ---
 
 
-**6、**在项目文件夹中，即cd到`/tictactoe-app`下，运行`npm start`，在浏览器打开 `http://localhost:3000`，会看到一个`hello world`。
+**6、** 在项目文件夹中，即cd到`/tictactoe-app`下，运行`npm start`，在浏览器打开 `http://localhost:3000`，会看到一个`hello world`。
 
 ---
 
-**注意：**此处运行`npm start`后，提示我说3000端口被占用了，我以为是之前的react项目直接关掉，端口还在占用中的缘故，但查看了下任务管理器，没有进程在占用3000端口，就不知道为何了，只好选择修改react应用的默认启动端口.....
+**注意：** 此处运行`npm start`后，提示我说3000端口被占用了，我以为是之前的react项目直接关掉，端口还在占用中的缘故，但查看了下任务管理器，没有进程在占用3000端口，就不知道为何了，只好选择修改react应用的默认启动端口.....
 
 于是取搜索了一波修改react项目默认端口的方法，以下博客讲的不错[React启动查看http://localhost:3000的原因](https://www.jianshu.com/p/6effa6f8059b)，该博客中讲了两种方法：
 
@@ -595,4 +595,4 @@ cd 到 `E:\someDemosForExercise\tictactoe-app`，执行 `npm start`后又提示3
 
 2.执行 `npm run build`
 
-3.将pages地址贴在readme中，即`http://shirley5li.me/someDemosForExercise/tictactoe-app/build/index.html`
+3.将pages地址贴在readme中，即`http://shirley5li.me/someDemosForExercise/tictactoe-app/public/index.html`
