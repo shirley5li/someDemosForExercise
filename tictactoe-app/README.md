@@ -597,6 +597,6 @@ cd 到 `E:\someDemosForExercise\tictactoe-app`，执行 `npm start`后又提示3
 
 2.执行 `npm run build`
 
-3.将pages地址贴在readme中，即`http://shirley5li.me/someDemosForExercise/tictactoe-app/build/index.html`
+3.将pages地址贴在readme中，即`http://shirley5li.me/someDemosForExercise/tictactoe-app/build/#`
 
 **注意：**记得将.gitignore文件中的忽略build文件夹注释掉，不然build文件夹无法上传上去。
