@@ -1,4 +1,4 @@
-# [demo展示](http://shirley5li.me/someDemosForExercise/tictactoe-app/public/index.html) #
+# [demo展示](http://shirley5li.me/someDemosForExercise/tictactoe-app/build/#) #
 
 # 开发环境准备 #
 **1、** 创建一个新的项目。
@@ -35,7 +35,7 @@ create-react-app tictactoe-app
 
 ---
 
-** <font color="red">补充：</font>** [git bash下操作文件及文件夹命令](https://www.cnblogs.com/SamWeb/p/6516784.html)，常用命令如下：
+<font color="red">补充：</font> [git bash下操作文件及文件夹命令](https://www.cnblogs.com/SamWeb/p/6516784.html)，常用命令如下：
 
 `cd` -->切换到哪个目录下， 如 `cd e:\fff`，表示切换 E 盘下面的fff 目录。
 
@@ -588,6 +588,8 @@ cd 到 `E:\someDemosForExercise\tictactoe-app`，执行 `npm start`后又提示3
 # 上传到github pages #
 参考[博客](https://www.cnblogs.com/liuboyingblog/p/8260233.html)
 
+**方法1**
+
 1.修改package.json,添加 `"homepage" : "http://myname.github.io/app_name"`。
 
 其中`app_name`字段为使用命令 `create-react-app tictactoe-app`创建的app名字，例如此处我的app名字为 `tictactoe-app`。`myname.github.io`字段为该项目所在的github pages目录，比如我给 `E:\someDemosForExercise`开启github pages功能，`tictactoe-app`项目对应在github pages的根目录为
@@ -600,3 +602,11 @@ cd 到 `E:\someDemosForExercise\tictactoe-app`，执行 `npm start`后又提示3
 3.将pages地址贴在readme中，即`http://shirley5li.me/someDemosForExercise/tictactoe-app/build/#`
 
 **注意：**记得将.gitignore文件中的忽略build文件夹注释掉，不然build文件夹无法上传上去。
+
+**方法2**
+
+1.修改package.json,添加 `"homepage" : "./"`。
+
+2.执行 `npm run build`
+
+3.将pages地址贴在readme中，即`http://shirley5li.me/someDemosForExercise/tictactoe-app/build/#`
