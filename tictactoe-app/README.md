@@ -1,6 +1,7 @@
 # [demo展示](http://shirley5li.me/someDemosForExercise/tictactoe-app/build/#) #
 
 # 开发环境准备 #
+
 **1、** 创建一个新的项目。
 
 新建文件夹`TicTacToe-ReactApp`，然后git bash到该文件夹，使用以下命令创建react app `tictactoe-app`。
