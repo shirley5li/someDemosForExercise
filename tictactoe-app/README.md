@@ -1,3 +1,5 @@
+# [demo展示](http://shirley5li.me/someDemosForExercise/tictactoe-app/build/index.html) #
+
 # 开发环境准备 #
 **1、**创建一个新的项目。
 
@@ -567,4 +569,30 @@ handleClick(i) {
 	            </div>
 	        );
 
-[demo展示]()
+
+
+# node进程管理 #
+cd 到 `E:\someDemosForExercise\tictactoe-app`，执行 `npm start`后又提示3001端口被占用。
+
+这是因为之前启用过3001端口测试该app，但是关掉node窗口后，并没有杀死node进程。在[论坛](https://segmentfault.com/q/1010000010012292)看到，**`git bash here` 在WIN10下面 `CTRL+C` 是关闭不掉 node进程的**，所以需要手动关掉node进程，解除端口占用。
+
+## windows查看端口占用命令 ##
+1.查看端口对应的进程PID `netstat -ano | findstr "3001"`
+
+2.查看进程PID对应的进程名称 `tasklist | findstr "20708"`
+
+3.结束该进程 `taskkill /f /t /im node.exe`
+
+![杀死node进程](http://ou3oh86t1.bkt.clouddn.com/react-tictactoe/%E6%9D%80%E6%AD%BBnode%E8%BF%9B%E7%A8%8B.png)
+
+# 上传到github pages #
+1.修改package.json,添加 `"homepage" : "http://myname.github.io/app_name"`。
+
+其中`app_name`字段为使用命令 `create-react-app tictactoe-app`创建的app名字，例如此处我的app名字为 `tictactoe-app`。`myname.github.io`字段为该项目所在的github pages目录，比如我给 `E:\someDemosForExercise`开启github pages功能，`tictactoe-app`项目对应在github pages的根目录为
+`http://shirley5li.me/someDemosForExercise/tictactoe-app`。
+
+所以我需要在package.json,添加 `"homepage" : "http://shirley5li.me/someDemosForExercise/tictactoe-app"`
+
+2.执行 `npm run build`
+
+3.将pages地址贴在readme中，即`http://shirley5li.me/someDemosForExercise/tictactoe-app/build/index.html`
