@@ -35,7 +35,7 @@ create-react-app tictactoe-app
 
 ---
 
-** <font color="red">补充：</font>**[git bash下操作文件及文件夹命令](https://www.cnblogs.com/SamWeb/p/6516784.html)，常用命令如下：
+** <font color="red">补充：</font>** [git bash下操作文件及文件夹命令](https://www.cnblogs.com/SamWeb/p/6516784.html)，常用命令如下：
 
 `cd` -->切换到哪个目录下， 如 `cd e:\fff`，表示切换 E 盘下面的fff 目录。
 
@@ -113,7 +113,7 @@ React是一个声明式的，高效的，并且灵活的用于构建用户界面
 
 `render` 返回一个 React 元素。
 
-**PS：**React的知识点较多，具体可参考[React开发文档](http://www.css88.com/react/docs/hello-world.html)。
+**PS：** React的知识点较多，具体可参考[React开发文档](http://www.css88.com/react/docs/hello-world.html)。
 
 # 开始游戏项目 #
 ## 构建应用的外壳 ##
