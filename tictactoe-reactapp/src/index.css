@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 100px;
+}
+
+ol, ul {
+    padding-left: 30px;
+}
+
+/* 
+.status {
+    margin-bottom: 20px;
+    font-weight: bold;
+    margin: 0 auto 20px;
+    font-size: 20px;
+    text-align: center;
+    color: #F4A460;
+} */
+
+.square {
+    border: 1px solid #F4A460;
+    float: left;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 100px;
+    height: 100px;
+    width: 100px;
+    margin-right: -1px; /* 消除内部方格边线的重叠 */
+    margin-top: -1px; /* 消除内部方格边线的重叠 */
+    padding: 0;
+    text-align: center;
+    background: #FFF5EE;
+    color: #F4A460;
+}
+
+.board-row:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.square:focus {
+    outline: none;
+    background: #FFE4E1;
+}
+
+.game {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.game-info {
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #F4A460;
+}
+
+.game-info ol li button {
+    border: 1px solid #F4A460;
+    background: #FFF5EE;
+}
+
+.game-info ol li button:focus {
+    font-weight: bold;
+    background: #FA8072;
+    outline: none;
+}
+.game-winner {
+    color: #FA8072;
+}
