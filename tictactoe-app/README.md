@@ -586,6 +586,8 @@ cd 到 `E:\someDemosForExercise\tictactoe-app`，执行 `npm start`后又提示3
 ![杀死node进程](http://ou3oh86t1.bkt.clouddn.com/react-tictactoe/%E6%9D%80%E6%AD%BBnode%E8%BF%9B%E7%A8%8B.png)
 
 # 上传到github pages #
+参考[博客](https://www.cnblogs.com/liuboyingblog/p/8260233.html)
+
 1.修改package.json,添加 `"homepage" : "http://myname.github.io/app_name"`。
 
 其中`app_name`字段为使用命令 `create-react-app tictactoe-app`创建的app名字，例如此处我的app名字为 `tictactoe-app`。`myname.github.io`字段为该项目所在的github pages目录，比如我给 `E:\someDemosForExercise`开启github pages功能，`tictactoe-app`项目对应在github pages的根目录为
@@ -595,4 +597,6 @@ cd 到 `E:\someDemosForExercise\tictactoe-app`，执行 `npm start`后又提示3
 
 2.执行 `npm run build`
 
-3.将pages地址贴在readme中，即`http://shirley5li.me/someDemosForExercise/tictactoe-app/public/index.html`
+3.将pages地址贴在readme中，即`http://shirley5li.me/someDemosForExercise/tictactoe-app/build/index.html`
+
+**注意：**记得将.gitignore文件中的忽略build文件夹注释掉，不然build文件夹无法上传上去。
