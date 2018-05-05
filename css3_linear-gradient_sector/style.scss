@@ -1,0 +1,27 @@
+html {height: 100%;}
+body {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+$x-offset: 100px;
+$y-offset: 46px;
+
+div {
+  width: 400px - $x-offset;
+  height: 346px - $y-offset;
+  border-radius: 50%;
+  border: solid 1px white;
+}
+
+div {
+  background: 
+    linear-gradient(120deg, transparent 75%, yellow 75%) (0px - $x-offset/2) (0px - $y-offset/2),
+    linear-gradient(120deg, transparent 75%, yellow 75%) (100px - $x-offset/2) (-173px - $y-offset/2),
+    linear-gradient(240deg, transparent 75%, yellow 75%) (0px - $x-offset/2) (0px - $y-offset/2),
+    linear-gradient(240deg, transparent 75%, yellow 75%) (100px - $x-offset/2) (-173px - $y-offset/2),
+    black; 
+  background-size: 200px 346px;
+}

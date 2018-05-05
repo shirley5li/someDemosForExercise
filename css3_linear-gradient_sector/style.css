@@ -1,0 +1,27 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%; 
+  border: solid 1px white;
+}
+
+div {
+  background: 
+  linear-gradient(120deg, transparent 75%, yellow 75%) -50px -23px, 
+  linear-gradient(120deg, transparent 75%, yellow 75%) 50px -196px,
+  linear-gradient(240deg, transparent 75%, yellow 75%) -50px -23px,
+  linear-gradient(240deg, transparent 75%, yellow 75%) 50px -196px,
+  black;
+  background-size: 200px 346px;
+}
