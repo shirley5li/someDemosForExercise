@@ -45,7 +45,7 @@ app.model({
 index.js
 ```jsx
 // 3. Component
-// 定义 页面展示组件 CountApp
+// 定义 容器组件兼页面展示组件 CountApp
 import styles from './index.less';
 const CountApp = ({count, onClickAdd}) => {
   return (
@@ -209,7 +209,7 @@ app.model({
 接下来修改组件的按钮`onClick`属性的值，以及绑定数据的`mapDispatchToProps`函数，使得点击组件 dispatch action 时，dispatch `{type: 'count/addThenMinus'}`对象经过 redux-saga 中间件异步处理，不再是通过dispatch `{type: 'count/add'})`同步改变state。
 ```jsx
 // 3. Component
-// 定义 页面展示组件 CountApp
+// 定义 容器组件兼页面展示组件 CountApp
 const CountApp = ({count, onClickAddMinus}) => {
   return (
     <div className={styles.normal}>
@@ -310,7 +310,7 @@ app.model({
 });
 
 // 3. Component
-// 定义 页面展示组件 CountApp
+// 定义 容器组件兼页面展示组件 CountApp
 const CountApp = ({count, onClickAddMinus}) => {
   return (
     <div className={styles.normal}>
@@ -355,7 +355,8 @@ npm run build
 ```
 编译后的文件在dist目录下。上传到github时，记得将`/dist`注释掉，否则上传不上去，无法看demo效果
 
-#【遇到的问题，未解决】#
+# 遇到的问题，未解决 #
+
 当写入`import key from 'keymaster';`并没有自动安装`keymaster`，按键盘数字并没变化，看了下issues才知道他们工具层有变动，需要手动添加依赖。
 还有不知道为什么，当手动引入依赖`cnpm install keymaster --save`时，在`node_modules`下发现该依赖，引入包名`_keymaster@1.6.2@keymaster`，即使引入了，但是当按`ctrl+up`时，还是没反应。
 
