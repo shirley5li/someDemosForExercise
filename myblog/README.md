@@ -61,7 +61,7 @@ ejs 有 3 种常用标签：
 ```
 输出样式如下图：
 
-![test](http://ou3oh86t1.bkt.clouddn.com/demo/express-mongoDB-ejs/iamges/test.png)
+![test](https://githubrepobucket1-1258277786.cos.ap-shanghai.myqcloud.com/express-ejs-mongoDB/test.png)
 
 使用模板引擎通常不是一个页面对应一个模板，这样就失去了模板的优势，而是把模板拆成可复用的模板片段组合使用，如在 views 下新建 header.ejs 和 footer.ejs，并修改 主模板users.ejs,将原来的 users.ejs 拆成出了 header.ejs 和 footer.ejs，并在 主模板users.ejs 通过 ejs 内置的 include 方法引入，即在主模板通过以下两个命令`<%- include('header') %>` 以及 `<%- include('footer') %>`引入两个拆分的模板文件，从而实现了跟以前一个模板文件相同的功能。
 
@@ -108,7 +108,7 @@ express 中的中间件（middleware）就是用来处理请求的，通过 app.
 
 在 myblog 目录下创建以下目录及空文件（package.json 除外）：
 
-![项目目录结构示意图](http://ou3oh86t1.bkt.clouddn.com/demo/express-mongoDB-ejs/iamges/catelog.png)
+![项目目录结构示意图](https://githubrepobucket1-1258277786.cos.ap-shanghai.myqcloud.com/express-ejs-mongoDB/catelog.png)
 
     models: 存放操作数据库的文件
     public: 存放静态文件，如样式、图片等
@@ -277,11 +277,11 @@ connect-flash 是基于 session 实现的，它的原理：设置初始值` req.
 
 将模板拆分成一些组件，然后使用 ejs 的 include 方法将组件组合起来进行渲染，主页模板拆分示意图如下：
 
-![主页模板拆分](http://ou3oh86t1.bkt.clouddn.com/demo/express-mongoDB-ejs/images/%E4%B8%BB%E9%A1%B5%E6%A8%A1%E6%9D%BF%E7%BB%84%E4%BB%B6%E6%8B%86%E5%88%86.png)
+![主页模板拆分](https://githubrepobucket1-1258277786.cos.ap-shanghai.myqcloud.com/express-ejs-mongoDB/%E4%B8%BB%E9%A1%B5%E6%A8%A1%E6%9D%BF%E7%BB%84%E4%BB%B6%E6%8B%86%E5%88%86.png)
 
 文章页模板拆分示意图如下：
 
-![文章页模板拆分](http://ou3oh86t1.bkt.clouddn.com/demo/express-mongoDB-ejs/images/%E6%96%87%E7%AB%A0%E9%A1%B5%E7%BB%84%E4%BB%B6%E6%8B%86%E5%88%86.png)
+![文章页模板拆分](https://githubrepobucket1-1258277786.cos.ap-shanghai.myqcloud.com/express-ejs-mongoDB/%E6%96%87%E7%AB%A0%E9%A1%B5%E7%BB%84%E4%BB%B6%E6%8B%86%E5%88%86.png)
 
 express 中有两个对象可用于模板的渲染：app.locals 和 res.locals，ejs 模板中用到了 blog、user、success、error 变量，我们将 blog 变量挂载到 app.locals 下，将 user、success、error 挂载到 res.locals 下。
 

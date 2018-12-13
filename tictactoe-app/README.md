@@ -221,7 +221,7 @@ js代码如下：
 
 此阶段的静态效果如图:
 
-![组件静态结构](http://ou3oh86t1.bkt.clouddn.com/react-tictactoe/%E7%BB%84%E4%BB%B6%E9%9D%99%E6%80%81%E7%BB%93%E6%9E%84.png)
+![组件静态结构](https://githubrepobucket1-1258277786.cos.ap-shanghai.myqcloud.com/react-tictactoe/%E7%BB%84%E4%BB%B6%E9%9D%99%E6%80%81%E7%BB%93%E6%9E%84.png)
 
 ## 通过props传递数据 ##
 从`Board	(棋盘)` 组件传递一些数据到 `Square(方格)` 组件。
@@ -584,7 +584,7 @@ cd 到 `E:\someDemosForExercise\tictactoe-app`，执行 `npm start`后又提示3
 
 3.结束该进程 `taskkill /f /t /im node.exe`
 
-![杀死node进程](http://ou3oh86t1.bkt.clouddn.com/react-tictactoe/%E6%9D%80%E6%AD%BBnode%E8%BF%9B%E7%A8%8B.png)
+![杀死node进程](https://githubrepobucket1-1258277786.cos.ap-shanghai.myqcloud.com/react-tictactoe/%E6%9D%80%E6%AD%BBnode%E8%BF%9B%E7%A8%8B.png)
 
 # 上传到github pages #
 

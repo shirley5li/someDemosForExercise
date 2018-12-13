@@ -22,7 +22,7 @@ $ npm start
 ```
 # 定义 models #
 dva数据流向如下：
-![dva数据流向](http://ou3oh86t1.bkt.clouddn.com/dvaGettingStarted/dva%E6%95%B0%E6%8D%AE%E6%B5%81%E5%90%91.png)
+![dva数据流向](https://githubrepobucket1-1258277786.cos.ap-shanghai.myqcloud.com/dvaGettingStarted/dva%E6%95%B0%E6%8D%AE%E6%B5%81%E5%90%91.png)
 项目进行的步骤：
 - 设计 models
 - 设计组件 components
@@ -167,7 +167,7 @@ app.router(({ history }) =>
 # 异步逻辑 effects #
 在这之前的逻辑都是同步的，当点击`+`按钮，值会加1。
 dva 通过在 model 中使用 effects来处理 side effects（异步逻辑），实现基于 redux-saga，使用了 ES6 Generator 语法。
-![effects使用](http://ou3oh86t1.bkt.clouddn.com/dvaGettingStarted/effects%E6%A0%BC%E5%BC%8F.png)
+![effects使用](https://githubrepobucket1-1258277786.cos.ap-shanghai.myqcloud.com/dvaGettingStarted/effects%E6%A0%BC%E5%BC%8F.png)
 在该 app 中，当用户点击 `+` 值会加 1，并且触发一个 side effect(即 1 秒后减 1)。修改 model 如下，添加`effects`部分：
 index.js
 ```js

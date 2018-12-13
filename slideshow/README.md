@@ -8,7 +8,7 @@
 ![div+css样式](http://img.blog.csdn.net/20170215144635821?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZGlsaWdlbnRrb25n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)。
 
 
-![未使用js轮播之前的静态效果](http://ou3oh86t1.bkt.clouddn.com/demo/slideshow/images/1.png)
+![未使用js轮播之前的静态效果](https://githubrepobucket1-1258277786.cos.ap-shanghai.myqcloud.com/slideshow/1.png)
 
 小圆圈 1 2 3 并不是写死的，它是根据ul li中的图片张数来决定。利用js获取到ul的所有子元素li，然后根据li元素的个数，创建相对应的ol元素下的li元素个数，然后将ol元素追加到box下。
 
